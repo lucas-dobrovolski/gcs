@@ -1,7 +1,9 @@
+#pragma once
+
 namespace GCS {
 
-class LgcCtrl {
-    
+class LgcCtrl {    public:
+        void giveContext();
 
 };
 
