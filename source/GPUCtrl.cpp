@@ -170,19 +170,21 @@ GSC::log("|◉|◌| GPUctrl setting core VO");
     vaoList.push_back(vao);
     vboList.push_back(vbo);
     eboList.push_back(ebo);
-
+    
 }
 
 
 void GSC::GPUCtrl::useShader(int i){
     glUseProgram(shaderPrograms[i]);
+    
 
-    float scl = 0.2f;
-
-    glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, glm::vec3(0.0f,0.0f,0.0f));
-    model = glm::scale(model, glm::vec3(0.2f)); 
-
+    
+    // Proyección perspectiva
+    glm::mat4 projection = glm::perspective(
+        glm::radians(45.0f),       // fov
+        800.0f/600.0f,             // aspect ratio
+        0.1f, 100.0f               // near/far
+    );
     // Vista: cámara mirando al origen
     glm::mat4 view = glm::lookAt(
         glm::vec3(0.0f,0.0f,5.0f), // posición cámara
@@ -190,15 +192,12 @@ void GSC::GPUCtrl::useShader(int i){
         glm::vec3(0.0f,1.0f,0.0f)  // up
     );
 
-    // Proyección perspectiva
-    glm::mat4 projection = glm::perspective(
-        glm::radians(45.0f),       // fov
-        800.0f/600.0f,             // aspect ratio
-        0.1f, 100.0f               // near/far
-    );
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, glm::vec3(0.0f,0.0f,0.0f));
+    model = glm::scale(model, glm::vec3(0.2f)); 
 
-    // Enviar matrices como uniforms
-    glUniform1f(glGetUniformLocation(shaderPrograms[i], "scale"), scl);
+
+
     glUniformMatrix4fv(glGetUniformLocation(shaderPrograms[i],"model"),1,GL_FALSE,glm::value_ptr(model));
     glUniformMatrix4fv(glGetUniformLocation(shaderPrograms[i],"view"),1,GL_FALSE,glm::value_ptr(view));
     glUniformMatrix4fv(glGetUniformLocation(shaderPrograms[i],"projection"),1,GL_FALSE,glm::value_ptr(projection));

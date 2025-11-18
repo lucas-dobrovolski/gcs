@@ -7,7 +7,7 @@ GSC::Core::Core()
     lgc = std::make_unique<LgcCtrl>();
     win = std::make_unique<WinCtrl>();
     gpu = std::make_unique<GPUCtrl>();   
-    
+    obj = std::make_unique<ObjCtrl>();
     GSC::log("|◉| Core ready ");
 }
 GSC::Core::~Core(){}

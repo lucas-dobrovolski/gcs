@@ -5,6 +5,7 @@
 #include "LgcCtrl.h"
 #include "WinCtrl.h"
 #include "GPUCtrl.h"
+#include "ObjCtrl.h"
 
 #include "gsc.h"
 
@@ -17,9 +18,9 @@ class Core {
             std::unique_ptr<LgcCtrl>        lgc;
             std::unique_ptr<WinCtrl>        win;
             std::unique_ptr<GPUCtrl>        gpu;
-            //std::unique_ptr<ObjCtrl>        objCtrl;
-            //std::unique_ptr<IptCtrl>        iptCtrl;
-            // std::unique_ptr<UICtrl>        uiCtrl;
+            std::unique_ptr<ObjCtrl>        obj;
+            //std::unique_ptr<IptCtrl>        ipt;
+            // std::unique_ptr<UICtrl>        ui;
 
     public:
 

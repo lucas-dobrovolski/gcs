@@ -3,6 +3,8 @@
 #include "ext/glad/include/glad/glad.h"
 #include <GLFW/glfw3.h>
 
+#include "ObjCtrl.h"
+
 #include "gsc.h"
 
 namespace GSC {
@@ -11,9 +13,7 @@ namespace GSC {
 
         private:
 
-            GLuint vao = 0;
-            GLuint vbo = 0;
-            GLuint ebo = 0;
+
             GLuint shaderProgram = 0;
 
             std::vector<GLuint> shaderPrograms;

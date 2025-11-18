@@ -10,10 +10,6 @@ GSC::LgcCtrl::~LgcCtrl(){}
 
 void GSC::LgcCtrl::set(){
 
-    Transform isocaedro;
-    isocaedro.position = glm::vec3(0.0f, 0.0f, 0.0f); // mover hacia arriba y alejar
-    isocaedro.rotation = glm::vec3(45.0f, 30.0f, 0.0f); // rotar 45° X, 30° Y
-    isocaedro.scale    = glm::vec3(0.5f); // reducir a la mitad
 
 }
 
@@ -21,3 +17,16 @@ void GSC::LgcCtrl::run(){
 
 
 }
+
+
+uint64_t GSC::LgcCtrl::evaluate_t_us()
+{
+    // tiempo actual desde epoch
+    auto now = std::chrono::high_resolution_clock::now();
+
+    // convertir a microsegundos desde epoch
+    auto us = std::chrono::duration_cast<std::chrono::microseconds>(now.time_since_epoch());
+
+    return us.count(); // devuelve el valor como entero de 64 bits
+}
+
