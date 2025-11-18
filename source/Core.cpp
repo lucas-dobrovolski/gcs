@@ -26,7 +26,6 @@ void GSC::Core::GO(){
     gpu->readCoreShader();
     gpu->setCoreVO();
    
-
         GSC::log("|◌| Core WHILE");
        
         while (!glfwWindowShouldClose(win->getCoreWin())) {
@@ -35,7 +34,6 @@ void GSC::Core::GO(){
             
             win->clearWindow();
 
-            gpu->readCoreShader();
             gpu->setCoreVO();
             gpu->useShader(0);
             gpu->drawBuffer(0);

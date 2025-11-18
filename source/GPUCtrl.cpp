@@ -38,6 +38,8 @@ GSC::GPUCtrl::~GPUCtrl() {
 
 GLuint GSC::GPUCtrl::getShader(int i){
     return shaderPrograms[i];
+
+
 }
 
 
@@ -62,13 +64,16 @@ static const char* ver_code = R"(
     #version 330 core
     layout(location = 0) in vec3 aPos;
 
-    uniform mat4 M;
-    uniform mat4 V;
-    uniform mat4 P;
+    uniform float scale;
+
+    uniform mat4 model;
+    uniform mat4 view;
+    uniform mat4 projection;
 
     void main() {
-        gl_Position = P * V * M * vec4(aPos, 1.0);
+        gl_Position = projection * view * model * scale * vec4(aPos, 1.0);
     }
+
     )";
         GLuint vs = glCreateShader(GL_VERTEX_SHADER);
         glShaderSource(vs, 1, &ver_code, nullptr);
@@ -78,7 +83,7 @@ static const char* fra_src = R"(
     #version 330 core
     out vec4 FragColor;
     void main() {
-        FragColor = vec4({1.0,1.0,1.0,1.0}); // blanco
+        FragColor = vec4(0.6); // blanco
         }
         )";
     GLuint fs = glCreateShader(GL_FRAGMENT_SHADER);
@@ -171,6 +176,32 @@ GSC::log("|◉|◌| GPUctrl setting core VO");
 
 void GSC::GPUCtrl::useShader(int i){
     glUseProgram(shaderPrograms[i]);
+
+    float scl = 0.2f;
+
+    glm::mat4 model = glm::mat4(1.0f);
+    model = glm::translate(model, glm::vec3(0.0f,0.0f,0.0f));
+    model = glm::scale(model, glm::vec3(0.2f)); 
+
+    // Vista: cámara mirando al origen
+    glm::mat4 view = glm::lookAt(
+        glm::vec3(0.0f,0.0f,5.0f), // posición cámara
+        glm::vec3(0.0f,0.0f,0.0f), // target
+        glm::vec3(0.0f,1.0f,0.0f)  // up
+    );
+
+    // Proyección perspectiva
+    glm::mat4 projection = glm::perspective(
+        glm::radians(45.0f),       // fov
+        800.0f/600.0f,             // aspect ratio
+        0.1f, 100.0f               // near/far
+    );
+
+    // Enviar matrices como uniforms
+    glUniform1f(glGetUniformLocation(shaderPrograms[i], "scale"), scl);
+    glUniformMatrix4fv(glGetUniformLocation(shaderPrograms[i],"model"),1,GL_FALSE,glm::value_ptr(model));
+    glUniformMatrix4fv(glGetUniformLocation(shaderPrograms[i],"view"),1,GL_FALSE,glm::value_ptr(view));
+    glUniformMatrix4fv(glGetUniformLocation(shaderPrograms[i],"projection"),1,GL_FALSE,glm::value_ptr(projection));
 }
 
 

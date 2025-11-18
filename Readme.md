@@ -1,4 +1,5 @@
 # Graphic Computer Simulations
+# añadir tiempo y movimiento
 
 El programa consiste en un objeto tipo Core.
 Core es el *objeto director* de 6 "ministros" llamados *controles*:
