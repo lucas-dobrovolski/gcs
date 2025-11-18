@@ -7,7 +7,6 @@ Core es el *objeto director* de 6 "ministros" llamados *controles*:
 
 Se crea un objeto Core, se crea cada controlador
 
-
 git init
 git status
 
@@ -19,4 +18,8 @@ git push -u origin main
 
 
 //msj
+
+# ideas
+
+simulador tipo kerbal -> sobre construcciones estables se pueden generar parecidos aleatoriamente y simular evoluciones
 

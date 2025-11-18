@@ -1,14 +1,18 @@
 #pragma once
 
+#include "gsc.h"
 namespace GSC {
 
 class LgcCtrl {    public:
-        void init();
-        void update();
+        
+        
+        LgcCtrl();
+        ~LgcCtrl();
+        
+        void set();
+        void run();
+        
 };
-
-
-
 
 
 

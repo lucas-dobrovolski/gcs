@@ -1,16 +1,31 @@
 #pragma once
 
+#include "ext/glad/include/glad/glad.h"
+#include <GLFW/glfw3.h>
+
+
+#include "gsc.h"
+
 namespace GSC {
 
 class WinCtrl { 
     
+    private:
+
+        GLFWwindow* corewindow;
+
     public:
 
         WinCtrl();
 
         ~WinCtrl();
 
-        void init();    
+        void initCoreWin();    
+        GLFWwindow* getCoreWin();
+
+        void clearWindow();
+        void pollWindow();
+
 
 };
 

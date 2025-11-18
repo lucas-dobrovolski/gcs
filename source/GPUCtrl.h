@@ -1,32 +1,40 @@
 #pragma once
 #include <vector>
 #include "ext/glad/include/glad/glad.h"
+#include <GLFW/glfw3.h>
 
+#include "gsc.h"
 
 namespace GSC {
 
-class GPUCtrl {
+    class GPUCtrl {
 
-    private:
+        private:
 
-        unsigned int vao = 0;
-        unsigned int vbo = 0;
-        unsigned int shaderProgram = 0;
+            GLuint vao = 0;
+            GLuint vbo = 0;
+            GLuint ebo = 0;
+            GLuint shaderProgram = 0;
 
-        std::vector<const char*> shaderList;
+            std::vector<GLuint> shaderPrograms;
 
-    public:
+            std::vector<GLuint> vaoList;
+            std::vector<GLuint> indexCounts; // paralelo a vaoList
+            std::vector<GLuint> vboList;
+            std::vector<GLuint> eboList;
 
-        GPUCtrl();
-        ~GPUCtrl();       
+        public:
 
-        const GLchar* getShader(int i);
+            GPUCtrl();
+            ~GPUCtrl();       
 
-};
+            GLuint getShader(int i);
+            void setGladContext();
 
+            void readCoreShader();
+            void setCoreVO();
 
-
+            void useShader(int i);
+            void drawBuffer(int i);
+    };
 }
-
-// error
-// a member with an in-class initializer must be constC/C++(1592)

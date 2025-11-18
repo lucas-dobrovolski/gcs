@@ -6,7 +6,6 @@
 #include "WinCtrl.h"
 #include "GPUCtrl.h"
 
-
 #include "gsc.h"
 
 namespace GSC {
