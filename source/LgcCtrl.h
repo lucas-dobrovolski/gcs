@@ -1,10 +1,10 @@
 #pragma once
 
-namespace GCS {
+namespace GSC {
 
 class LgcCtrl {    public:
-        void giveContext();
-
+        void init();
+        void update();
 };
 
 

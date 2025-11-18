@@ -1,6 +1,5 @@
-build/GPUCtrl.o: source/GPUCtrl.cpp source/GPUCtrl.h \
+build/glad.o: source/ext/glad/src/glad.c \
  source/ext/glad/include/glad/glad.h \
  source/ext/glad/include/KHR/khrplatform.h
-source/GPUCtrl.h:
 source/ext/glad/include/glad/glad.h:
 source/ext/glad/include/KHR/khrplatform.h:

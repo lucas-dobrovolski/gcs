@@ -1,9 +1,16 @@
 #pragma once
 
-namespace GCS {
+namespace GSC {
 
-class WinCtrl { public:
-    void giveContext();    
+class WinCtrl { 
+    
+    public:
+
+        WinCtrl();
+
+        ~WinCtrl();
+
+        void init();    
 
 };
 

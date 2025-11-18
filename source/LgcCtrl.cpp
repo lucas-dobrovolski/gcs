@@ -1,3 +1,4 @@
 #include "LgcCtrl.h"
 
-void GCS::LgcCtrl::giveContext(){}
+void GSC::LgcCtrl::init(){}
+void GSC::LgcCtrl::update(){}

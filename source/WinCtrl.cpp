@@ -1,3 +1,6 @@
 #include "WinCtrl.h"
 
-void GCS::WinCtrl::giveContext(){}
+void GSC::WinCtrl::init(){}
+
+GSC::WinCtrl::WinCtrl(){}
+GSC::WinCtrl::~WinCtrl(){}
