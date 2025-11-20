@@ -43,13 +43,13 @@ void GSC::WinCtrl::clearWindow(){
     
     glClearColor(0.1f, 0.4f, 0.25f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
-    GSC::log("|◉|◉| Win cleared ok");
+    //GSC::log("|◉|◉| Win cleared ok");
     
 }
 
 void GSC::WinCtrl::pollWindow(){
     glfwPollEvents();   // leer teclado, mouse, lógica de ventana
     glfwSwapBuffers(corewindow);  // mostrar el frame en pantalla
-    GSC::log("|◉|◉| Win polled ok");
+    //GSC::log("|◉|◉| Win polled ok");
 
 }

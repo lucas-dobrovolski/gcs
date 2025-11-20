@@ -2,10 +2,10 @@
 //# Core.h
 #include <memory>
 
-#include "LgcCtrl.h"
-#include "WinCtrl.h"
-#include "GPUCtrl.h"
-#include "ObjCtrl.h"
+#include "Ctrl/LgcCtrl.h"
+#include "Ctrl/WinCtrl.h"
+#include "Ctrl/GPUCtrl.h"
+#include "Ctrl/ObjCtrl.h"
 
 #include "gsc.h"
 
@@ -24,9 +24,7 @@ class Core {
 
     public:
 
-            Core(
-
-            );
+            Core();
             ~Core();
 
             void GO();

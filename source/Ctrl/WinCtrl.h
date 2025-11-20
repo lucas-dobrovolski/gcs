@@ -1,10 +1,9 @@
 #pragma once
-
-#include "ext/glad/include/glad/glad.h"
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 
-#include "gsc.h"
+#include "../gsc.h"
 
 namespace GSC {
 

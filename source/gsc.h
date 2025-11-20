@@ -1,5 +1,8 @@
 #pragma once
-
+#include <fstream>
+#include <sstream>
+#include <string>
+#include <stdexcept>
 #include <iostream>
 #include <glm/glm.hpp>                // tipos básicos: vec3, mat4
 #include <glm/gtc/matrix_transform.hpp> // funciones de transformación: translate, rotate, scale, perspective
@@ -8,7 +11,7 @@
 namespace GSC {
 
     void log(const char* msg);
-    
+    std::string readFile(const std::string& path);
     // vertices "obj"
     struct Transform {
     glm::vec3 position = glm::vec3(0.0f); // centro del mundo
