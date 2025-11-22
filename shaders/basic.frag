@@ -1,7 +1,11 @@
 #version 330 core
 
+in vec3 vNormal;
+in vec2 vUV;
+
 out vec4 FragColor;
 
-void main() {
-    FragColor = vec4(1.0, 0.8, 0.3, 1.0);   // un color ambar cálido
+void main(){
+    vec3 baseColor = abs(vNormal);  // colorcito según normal
+    FragColor = vec4(baseColor, 1.0);
 }
